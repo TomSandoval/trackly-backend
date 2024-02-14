@@ -1,5 +1,11 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
+export enum GenderEnum {
+  MALE = "male",
+  FEMALE = 'female'
+}
+
+
 @Entity({
   name: 'users',
 })
@@ -16,15 +22,12 @@ export class User {
   @Column()
   password: string;
 
-  @Column({ nullable: true })
-  gender: 'MALE' | 'FEMALE';
+  @Column({ nullable: true,  type: 'enum', enum: GenderEnum})
+  gender: GenderEnum;
 
   @Column({ type: 'date' })
   birthdate: Date;
 
   @Column({ nullable: true })
   avatar: string;
-
-  @Column()
-  age: number;
 }

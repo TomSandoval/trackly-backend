@@ -3,5 +3,4 @@ export class CreateUserDto {
     email: string
     password: string
     birthdate: Date
-    age: number
 }
